@@ -18,6 +18,7 @@
     <FrameLayout
         android:layout_width="150dp"
         android:layout_height="150dp"
+        android:id="@+id/frame"
         android:layout_below="@id/hello">
 
         <net.ddns.satsukies.togglecolors.ToggleColors
@@ -25,4 +26,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </FrameLayout>
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/frame"/>
 </RelativeLayout>
