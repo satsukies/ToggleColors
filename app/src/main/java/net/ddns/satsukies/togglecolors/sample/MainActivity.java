@@ -1,5 +1,6 @@
 package net.ddns.satsukies.togglecolors.sample;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -15,6 +16,11 @@ public class MainActivity extends AppCompatActivity {
 
         ToggleColors toggle = (ToggleColors)findViewById(R.id.toggle);
         toggle.setOnCheckedChangeListener(new ToggleColorsListener());
-        toggle.setSelectedBG(getResources().getColor(R.color.red200));
+        toggle.setFillColor(ToggleColors.COLOR_GREEN_200);
+
+        ToggleColors toggle2 = (ToggleColors)findViewById(R.id.toggle2);
+        toggle2.setOnCheckedChangeListener(new ToggleColorsListener());
+        toggle2.setFillColor(ToggleColors.COLOR_ORANGE_200);
+
     }
 }

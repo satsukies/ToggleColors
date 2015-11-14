@@ -1,7 +1,10 @@
 package net.ddns.satsukies.togglecolors;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.graphics.Color;
 import android.view.View;
+import android.view.ViewAnimationUtils;
 import android.widget.CompoundButton;
 
 /**
@@ -12,15 +15,26 @@ public class ToggleColorsListener implements CompoundButton.OnCheckedChangeListe
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
-        View parent = (View) buttonView.getParent();
+        final View parent = (View) buttonView.getParent();
 
-//        ToggleColors.setDefaultBG(parent.getBackground());
+        int cx = (buttonView.getLeft() + buttonView.getRight()) / 2;
+        int cy = (buttonView.getTop() + buttonView.getBottom()) / 2;
 
-        if(isChecked) {
-            parent.setBackgroundColor(((ToggleColors)buttonView).getSelectedBG());
-        }else{
-//            parent.setBackgroundColor(ToggleColors.getDefaultBG());
-            parent.setBackgroundColor(Color.TRANSPARENT);
+        int finalRadius = Math.max(parent.getWidth(), parent.getHeight());
+
+        if (isChecked) {
+            parent.setBackgroundColor(((ToggleColors) buttonView).getFillColor());
+            Animator anim = ViewAnimationUtils.createCircularReveal(parent, cx, cy, 0, finalRadius);
+            anim.start();
+        } else {
+            Animator anim2 = ViewAnimationUtils.createCircularReveal(parent, cx, cy, finalRadius, 0);
+            anim2.addListener(new AnimatorListenerAdapter() {
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    parent.setBackgroundColor(Color.TRANSPARENT);
+                }
+            });
+            anim2.start();
         }
 
     }
