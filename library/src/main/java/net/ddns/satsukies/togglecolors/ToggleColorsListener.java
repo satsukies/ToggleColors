@@ -18,8 +18,9 @@ public class ToggleColorsListener implements CompoundButton.OnCheckedChangeListe
 
     /**
      * 背景色の変更処理と、それに伴うアニメーションが実装されている。
+     *
      * @param buttonView 状態が変化したSwitch
-     * @param isChecked Switchの状態。trueがチェックされている状態。
+     * @param isChecked  Switchの状態。trueがチェックされている状態。
      */
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -40,10 +41,11 @@ public class ToggleColorsListener implements CompoundButton.OnCheckedChangeListe
             }
         } else {
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-                Animator anim2 = ViewAnimationUtils.createCircularReveal(parent, cx, cy, finalRadius, 0);
+                final Animator anim2 = ViewAnimationUtils.createCircularReveal(parent, cx, cy, finalRadius, 0);
                 anim2.addListener(new AnimatorListenerAdapter() {
                     @Override
                     public void onAnimationEnd(Animator animation) {
+                        super.onAnimationEnd(anim2);
                         parent.setBackgroundColor(Color.TRANSPARENT);
                     }
                 });
