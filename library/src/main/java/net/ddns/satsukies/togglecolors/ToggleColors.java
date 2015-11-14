@@ -10,6 +10,10 @@ import android.widget.ToggleButton;
 /**
  * Created by satsukies on 15/11/14.
  */
+
+/**
+ * 配置されたViewの親Viewまでの背景を塗り替えられるSwitch要素。
+ */
 public class ToggleColors extends Switch {
 
     /**
@@ -42,24 +46,48 @@ public class ToggleColors extends Switch {
 
     private Context mContext;
 
+    /**
+     * コンストラクタ。
+     * @param context
+     * @param attrs
+     * @param defStyleAttr
+     */
     public ToggleColors(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         mContext = context;
     }
 
+    /**
+     * コンストラクタ。XML内で記述している場合、こちらが呼ばれる。
+     * @param context
+     * @param attrs
+     */
     public ToggleColors(Context context, AttributeSet attrs) {
         super(context, attrs);
         mContext = context;
     }
 
+    /**
+     * コンストラクタ。一番簡素。
+     * @param context
+     */
     public ToggleColors(Context context) {
         super(context);
     }
 
+    /**
+     * 塗り替える背景色を指定できる。<br/>
+     * Android Design指針に従った値が、ToggleColors.COLOR_xxx_200として用意されている。
+     * @param color 色のint値。Color.parseColor()で変換してもOK。
+     */
     public void setFillColor(int color) {
         fillColor = color;
     }
 
+    /**
+     * 指定されている背景色のint値を取得できる。
+     * @return 指定されている背景色のint値。
+     */
     public int getFillColor() {
         return fillColor;
     }

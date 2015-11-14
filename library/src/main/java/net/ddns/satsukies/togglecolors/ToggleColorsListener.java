@@ -10,8 +10,17 @@ import android.widget.CompoundButton;
 /**
  * Created by satsukies on 15/11/14.
  */
+
+/**
+ * ToggleColors専用のCheck状態変化時のリスナークラス。
+ */
 public class ToggleColorsListener implements CompoundButton.OnCheckedChangeListener {
 
+    /**
+     * 背景色の変更処理と、それに伴うアニメーションが実装されている。
+     * @param buttonView 状態が変化したSwitch
+     * @param isChecked Switchの状態。trueがチェックされている状態。
+     */
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
