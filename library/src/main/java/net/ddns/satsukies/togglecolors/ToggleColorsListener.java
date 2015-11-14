@@ -24,17 +24,24 @@ public class ToggleColorsListener implements CompoundButton.OnCheckedChangeListe
 
         if (isChecked) {
             parent.setBackgroundColor(((ToggleColors) buttonView).getFillColor());
-            Animator anim = ViewAnimationUtils.createCircularReveal(parent, cx, cy, 0, finalRadius);
-            anim.start();
+
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+                Animator anim = ViewAnimationUtils.createCircularReveal(parent, cx, cy, 0, finalRadius);
+                anim.start();
+            }
         } else {
-            Animator anim2 = ViewAnimationUtils.createCircularReveal(parent, cx, cy, finalRadius, 0);
-            anim2.addListener(new AnimatorListenerAdapter() {
-                @Override
-                public void onAnimationEnd(Animator animation) {
-                    parent.setBackgroundColor(Color.TRANSPARENT);
-                }
-            });
-            anim2.start();
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+                Animator anim2 = ViewAnimationUtils.createCircularReveal(parent, cx, cy, finalRadius, 0);
+                anim2.addListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        parent.setBackgroundColor(Color.TRANSPARENT);
+                    }
+                });
+                anim2.start();
+            } else {
+                parent.setBackgroundColor(Color.TRANSPARENT);
+            }
         }
 
     }

@@ -9,41 +9,76 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/hello"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
-
-    <FrameLayout
+    <LinearLayout
         android:id="@+id/frame"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_below="@id/hello">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OFF"
+            android:textSize="48sp" />
 
         <net.ddns.satsukies.togglecolors.ToggleColors
             android:id="@+id/toggle"
+            android:layout_marginLeft="16dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </FrameLayout>
-
-    <Switch
-        android:id="@+id/none"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/frame" />
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
 
     <FrameLayout
         android:id="@+id/frame2"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_below="@id/none">
+        android:layout_height="100dp"
+        android:layout_below="@id/frame">
 
         <net.ddns.satsukies.togglecolors.ToggleColors
             android:id="@+id/toggle2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|center_horizontal" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame3"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@id/frame2">
+
+        <net.ddns.satsukies.togglecolors.ToggleColors
+            android:id="@+id/toggle3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame4"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@id/frame3">
+
+        <net.ddns.satsukies.togglecolors.ToggleColors
+            android:id="@+id/toggle4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame5"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@id/frame4">
+
+        <net.ddns.satsukies.togglecolors.ToggleColors
+            android:id="@+id/toggle5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right" />
     </FrameLayout>
 
 
